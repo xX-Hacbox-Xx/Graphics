@@ -3,8 +3,8 @@
 # Introduce any changes under .yamato/config/*.metafile files (for most cases) or under .yamato/ruamel/* within Python (more elaborate cases), and rerun build.py to regenerate all .yml files. 
 # Read more under .yamato/docs/readme.md 
 
-URP_Performance_BoatAttack_Win_DX11_performance_playmode_runtime_il2cpp_apiNet4_Linear_trunk:
-    name: URP_Performance_BoatAttack on Win_DX11_performance_playmode_runtime_il2cpp_apiNet4_Linear on version trunk
+URP_Performance_BoatAttack_Win_Vulkan_performance_playmode_runtime_il2cpp_apiNet4_Linear_trunk:
+    name: URP_Performance_BoatAttack on Win_Vulkan_performance_playmode_runtime_il2cpp_apiNet4_Linear on version trunk
     agent:
         type: Unity::VM::GPU
         image: sdet/gamecode_win10:stable
@@ -20,10 +20,10 @@ URP_Performance_BoatAttack_Win_DX11_performance_playmode_runtime_il2cpp_apiNet4_
               -  "**/test-results/**"
               -  "TestProjects/BoatAttack/Logs/*.log"
     dependencies:
-      -  path: .yamato/urp_performance_boatattack-win-dx11.yml#Build_URP_Performance_BoatAttack_Win_DX11_Player_il2cpp_apiNet4_Linear_trunk
+      -  path: .yamato/urp_performance_boatattack-win-vulkan.yml#Build_URP_Performance_BoatAttack_Win_Vulkan_Player_il2cpp_apiNet4_Linear_trunk
          rerun: on-new-revision
-Build_URP_Performance_BoatAttack_Win_DX11_Player_il2cpp_apiNet4_Linear_trunk:
-    name: Build URP_Performance_BoatAttack on Win_DX11_il2cpp_apiNet4_Linear_Player on version trunk
+Build_URP_Performance_BoatAttack_Win_Vulkan_Player_il2cpp_apiNet4_Linear_trunk:
+    name: Build URP_Performance_BoatAttack on Win_Vulkan_il2cpp_apiNet4_Linear_Player on version trunk
     agent:
         type: Unity::VM
         image: sdet/gamecode_win10:stable
@@ -61,7 +61,7 @@ Build_URP_Performance_BoatAttack_Win_DX11_Player_il2cpp_apiNet4_Linear_trunk:
                   set /p GIT_REVISIONDATE=<revdate.tmp
                   echo %GIT_REVISIONDATE%
                   del revdate.tmp
-                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --build-only --editor-location=.Editor --extra-editor-arg="-addscenetobuild=Assets/scenes/Testing/benchmark_island-static.unity" --extra-editor-arg="-allowdebugging-" --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-executemethod CustomBuild.BuildWindowsDX11Linear" --extra-editor-arg="-executemethod Editor.Setup" --extra-editor-arg="-managedstrippinglevel=Low" --extra-editor-arg="-packageundertestbranch=%GIT_BRANCH%" --extra-editor-arg="-packageundertestname=com.unity.render-pipelines.universal" --extra-editor-arg="-packageundertestrev=%GIT_REVISION%" --extra-editor-arg="-packageundertestrevdate=%GIT_REVISIONDATE%" --extra-editor-arg="-playergraphicsapi=Direct3D11" --extra-editor-arg="-stripenginecode-" --extra-editor-arg="-testCategory Performance" --platform=StandaloneWindows64 --player-save-path=../../players --scripting-backend=IL2CPP --suite=playmode --testproject=. --timeout=1200
+                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --build-only --editor-location=.Editor --extra-editor-arg="-addscenetobuild=Assets/scenes/Testing/benchmark_island-static.unity" --extra-editor-arg="-allowdebugging-" --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-executemethod CustomBuild.BuildWindowsVulkanLinear" --extra-editor-arg="-executemethod Editor.Setup" --extra-editor-arg="-managedstrippinglevel=Low" --extra-editor-arg="-packageundertestbranch=%GIT_BRANCH%" --extra-editor-arg="-packageundertestname=com.unity.render-pipelines.universal" --extra-editor-arg="-packageundertestrev=%GIT_REVISION%" --extra-editor-arg="-packageundertestrevdate=%GIT_REVISIONDATE%" --extra-editor-arg="-playergraphicsapi=Vulkan" --extra-editor-arg="-stripenginecode-" --extra-editor-arg="-testCategory Performance" --platform=StandaloneWindows64 --player-save-path=../../players --scripting-backend=IL2CPP --suite=playmode --testproject=. --timeout=1200
     artifacts:
         logs:
             paths:
@@ -70,8 +70,8 @@ Build_URP_Performance_BoatAttack_Win_DX11_Player_il2cpp_apiNet4_Linear_trunk:
         players:
             paths:
               -  "players/**"
-URP_Performance_BoatAttack_Win_DX11_performance_playmode_runtime_mono_apiNet2_Linear_trunk:
-    name: URP_Performance_BoatAttack on Win_DX11_performance_playmode_runtime_mono_apiNet2_Linear on version trunk
+URP_Performance_BoatAttack_Win_Vulkan_performance_playmode_runtime_mono_apiNet2_Linear_trunk:
+    name: URP_Performance_BoatAttack on Win_Vulkan_performance_playmode_runtime_mono_apiNet2_Linear on version trunk
     agent:
         type: Unity::VM::GPU
         image: sdet/gamecode_win10:stable
@@ -87,10 +87,10 @@ URP_Performance_BoatAttack_Win_DX11_performance_playmode_runtime_mono_apiNet2_Li
               -  "**/test-results/**"
               -  "TestProjects/BoatAttack/Logs/*.log"
     dependencies:
-      -  path: .yamato/urp_performance_boatattack-win-dx11.yml#Build_URP_Performance_BoatAttack_Win_DX11_Player_mono_apiNet2_Linear_trunk
+      -  path: .yamato/urp_performance_boatattack-win-vulkan.yml#Build_URP_Performance_BoatAttack_Win_Vulkan_Player_mono_apiNet2_Linear_trunk
          rerun: on-new-revision
-Build_URP_Performance_BoatAttack_Win_DX11_Player_mono_apiNet2_Linear_trunk:
-    name: Build URP_Performance_BoatAttack on Win_DX11_mono_apiNet2_Linear_Player on version trunk
+Build_URP_Performance_BoatAttack_Win_Vulkan_Player_mono_apiNet2_Linear_trunk:
+    name: Build URP_Performance_BoatAttack on Win_Vulkan_mono_apiNet2_Linear_Player on version trunk
     agent:
         type: Unity::VM
         image: sdet/gamecode_win10:stable
@@ -128,7 +128,7 @@ Build_URP_Performance_BoatAttack_Win_DX11_Player_mono_apiNet2_Linear_trunk:
                   set /p GIT_REVISIONDATE=<revdate.tmp
                   echo %GIT_REVISIONDATE%
                   del revdate.tmp
-                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --build-only --editor-location=.Editor --extra-editor-arg="-addscenetobuild=Assets/scenes/Testing/benchmark_island-static.unity" --extra-editor-arg="-allowdebugging-" --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-executemethod CustomBuild.BuildWindowsDX11Linear" --extra-editor-arg="-executemethod Editor.Setup" --extra-editor-arg="-managedstrippinglevel=Low" --extra-editor-arg="-packageundertestbranch=%GIT_BRANCH%" --extra-editor-arg="-packageundertestname=com.unity.render-pipelines.universal" --extra-editor-arg="-packageundertestrev=%GIT_REVISION%" --extra-editor-arg="-packageundertestrevdate=%GIT_REVISIONDATE%" --extra-editor-arg="-playergraphicsapi=Direct3D11" --extra-editor-arg="-stripenginecode-" --extra-editor-arg="-testCategory Performance" --platform=StandaloneWindows64 --player-save-path=../../players --scripting-backend=Mono2x --suite=playmode --testproject=. --timeout=1200
+                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --build-only --editor-location=.Editor --extra-editor-arg="-addscenetobuild=Assets/scenes/Testing/benchmark_island-static.unity" --extra-editor-arg="-allowdebugging-" --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-executemethod CustomBuild.BuildWindowsVulkanLinear" --extra-editor-arg="-executemethod Editor.Setup" --extra-editor-arg="-managedstrippinglevel=Low" --extra-editor-arg="-packageundertestbranch=%GIT_BRANCH%" --extra-editor-arg="-packageundertestname=com.unity.render-pipelines.universal" --extra-editor-arg="-packageundertestrev=%GIT_REVISION%" --extra-editor-arg="-packageundertestrevdate=%GIT_REVISIONDATE%" --extra-editor-arg="-playergraphicsapi=Vulkan" --extra-editor-arg="-stripenginecode-" --extra-editor-arg="-testCategory Performance" --platform=StandaloneWindows64 --player-save-path=../../players --scripting-backend=Mono2x --suite=playmode --testproject=. --timeout=1200
     artifacts:
         logs:
             paths:
@@ -137,8 +137,8 @@ Build_URP_Performance_BoatAttack_Win_DX11_Player_mono_apiNet2_Linear_trunk:
         players:
             paths:
               -  "players/**"
-URP_Performance_BoatAttack_Win_DX11_performance_editmode_build_il2cpp_apiNet4_Linear_trunk:
-    name: URP_Performance_BoatAttack on Win_DX11_performance_editmode_build_il2cpp_apiNet4_Linear on version trunk
+URP_Performance_BoatAttack_Win_Vulkan_performance_editmode_build_il2cpp_apiNet4_Linear_trunk:
+    name: URP_Performance_BoatAttack on Win_Vulkan_performance_editmode_build_il2cpp_apiNet4_Linear on version trunk
     agent:
         type: Unity::VM::GPU
         image: sdet/gamecode_win10:stable
@@ -176,14 +176,14 @@ URP_Performance_BoatAttack_Win_DX11_performance_editmode_build_il2cpp_apiNet4_Li
                   set /p GIT_REVISIONDATE=<revdate.tmp
                   echo %GIT_REVISIONDATE%
                   del revdate.tmp
-                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --editor-location=.Editor --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-force-d3d11" --performance-project-id=BoatAttack --platform=editmode --report-performance-data --reruncount=2 --scripting-backend=IL2CPP --suite=editor --testfilter=Build --testproject=.
+                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --editor-location=.Editor --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-force-vulkan" --performance-project-id=BoatAttack --platform=editmode --report-performance-data --reruncount=2 --scripting-backend=IL2CPP --suite=editor --testfilter=Build --testproject=.
     artifacts:
         logs:
             paths:
               -  "**/test-results/**"
               -  "TestProjects/BoatAttack/Logs/*.log"
-URP_Performance_BoatAttack_Win_DX11_performance_editmode_build_mono_apiNet2_Linear_trunk:
-    name: URP_Performance_BoatAttack on Win_DX11_performance_editmode_build_mono_apiNet2_Linear on version trunk
+URP_Performance_BoatAttack_Win_Vulkan_performance_editmode_build_mono_apiNet2_Linear_trunk:
+    name: URP_Performance_BoatAttack on Win_Vulkan_performance_editmode_build_mono_apiNet2_Linear on version trunk
     agent:
         type: Unity::VM::GPU
         image: sdet/gamecode_win10:stable
@@ -221,14 +221,14 @@ URP_Performance_BoatAttack_Win_DX11_performance_editmode_build_mono_apiNet2_Line
                   set /p GIT_REVISIONDATE=<revdate.tmp
                   echo %GIT_REVISIONDATE%
                   del revdate.tmp
-                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --editor-location=.Editor --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-force-d3d11" --performance-project-id=BoatAttack --platform=editmode --report-performance-data --reruncount=2 --scripting-backend=Mono2x --suite=editor --testfilter=Build --testproject=.
+                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --editor-location=.Editor --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-force-vulkan" --performance-project-id=BoatAttack --platform=editmode --report-performance-data --reruncount=2 --scripting-backend=Mono2x --suite=editor --testfilter=Build --testproject=.
     artifacts:
         logs:
             paths:
               -  "**/test-results/**"
               -  "TestProjects/BoatAttack/Logs/*.log"
-URP_Performance_BoatAttack_Win_DX11_performance_playmode_runtime_il2cpp_apiNet4_Linear_CUSTOM-REVISION:
-    name: URP_Performance_BoatAttack on Win_DX11_performance_playmode_runtime_il2cpp_apiNet4_Linear on version CUSTOM-REVISION
+URP_Performance_BoatAttack_Win_Vulkan_performance_playmode_runtime_il2cpp_apiNet4_Linear_CUSTOM-REVISION:
+    name: URP_Performance_BoatAttack on Win_Vulkan_performance_playmode_runtime_il2cpp_apiNet4_Linear on version CUSTOM-REVISION
     agent:
         type: Unity::VM::GPU
         image: sdet/gamecode_win10:stable
@@ -247,10 +247,10 @@ URP_Performance_BoatAttack_Win_DX11_performance_playmode_runtime_il2cpp_apiNet4_
     dependencies:
       -  path: .yamato/_editor_priming.yml#editor:priming:CUSTOM-REVISION:windows
          rerun: always
-      -  path: .yamato/urp_performance_boatattack-win-dx11.yml#Build_URP_Performance_BoatAttack_Win_DX11_Player_il2cpp_apiNet4_Linear_CUSTOM-REVISION
+      -  path: .yamato/urp_performance_boatattack-win-vulkan.yml#Build_URP_Performance_BoatAttack_Win_Vulkan_Player_il2cpp_apiNet4_Linear_CUSTOM-REVISION
          rerun: always
-Build_URP_Performance_BoatAttack_Win_DX11_Player_il2cpp_apiNet4_Linear_CUSTOM-REVISION:
-    name: Build URP_Performance_BoatAttack on Win_DX11_il2cpp_apiNet4_Linear_Player on version CUSTOM-REVISION
+Build_URP_Performance_BoatAttack_Win_Vulkan_Player_il2cpp_apiNet4_Linear_CUSTOM-REVISION:
+    name: Build URP_Performance_BoatAttack on Win_Vulkan_il2cpp_apiNet4_Linear_Player on version CUSTOM-REVISION
     agent:
         type: Unity::VM
         image: sdet/gamecode_win10:stable
@@ -289,7 +289,7 @@ Build_URP_Performance_BoatAttack_Win_DX11_Player_il2cpp_apiNet4_Linear_CUSTOM-RE
                   set /p GIT_REVISIONDATE=<revdate.tmp
                   echo %GIT_REVISIONDATE%
                   del revdate.tmp
-                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --build-only --editor-location=.Editor --extra-editor-arg="-addscenetobuild=Assets/scenes/Testing/benchmark_island-static.unity" --extra-editor-arg="-allowdebugging-" --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-executemethod CustomBuild.BuildWindowsDX11Linear" --extra-editor-arg="-executemethod Editor.Setup" --extra-editor-arg="-managedstrippinglevel=Low" --extra-editor-arg="-packageundertestbranch=%GIT_BRANCH%" --extra-editor-arg="-packageundertestname=com.unity.render-pipelines.universal" --extra-editor-arg="-packageundertestrev=%GIT_REVISION%" --extra-editor-arg="-packageundertestrevdate=%GIT_REVISIONDATE%" --extra-editor-arg="-playergraphicsapi=Direct3D11" --extra-editor-arg="-stripenginecode-" --extra-editor-arg="-testCategory Performance" --platform=StandaloneWindows64 --player-save-path=../../players --scripting-backend=IL2CPP --suite=playmode --testproject=. --timeout=1200
+                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --build-only --editor-location=.Editor --extra-editor-arg="-addscenetobuild=Assets/scenes/Testing/benchmark_island-static.unity" --extra-editor-arg="-allowdebugging-" --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-executemethod CustomBuild.BuildWindowsVulkanLinear" --extra-editor-arg="-executemethod Editor.Setup" --extra-editor-arg="-managedstrippinglevel=Low" --extra-editor-arg="-packageundertestbranch=%GIT_BRANCH%" --extra-editor-arg="-packageundertestname=com.unity.render-pipelines.universal" --extra-editor-arg="-packageundertestrev=%GIT_REVISION%" --extra-editor-arg="-packageundertestrevdate=%GIT_REVISIONDATE%" --extra-editor-arg="-playergraphicsapi=Vulkan" --extra-editor-arg="-stripenginecode-" --extra-editor-arg="-testCategory Performance" --platform=StandaloneWindows64 --player-save-path=../../players --scripting-backend=IL2CPP --suite=playmode --testproject=. --timeout=1200
     artifacts:
         logs:
             paths:
@@ -301,8 +301,8 @@ Build_URP_Performance_BoatAttack_Win_DX11_Player_il2cpp_apiNet4_Linear_CUSTOM-RE
     dependencies:
       -  path: .yamato/_editor_priming.yml#editor:priming:CUSTOM-REVISION:windows
          rerun: always
-URP_Performance_BoatAttack_Win_DX11_performance_playmode_runtime_mono_apiNet2_Linear_CUSTOM-REVISION:
-    name: URP_Performance_BoatAttack on Win_DX11_performance_playmode_runtime_mono_apiNet2_Linear on version CUSTOM-REVISION
+URP_Performance_BoatAttack_Win_Vulkan_performance_playmode_runtime_mono_apiNet2_Linear_CUSTOM-REVISION:
+    name: URP_Performance_BoatAttack on Win_Vulkan_performance_playmode_runtime_mono_apiNet2_Linear on version CUSTOM-REVISION
     agent:
         type: Unity::VM::GPU
         image: sdet/gamecode_win10:stable
@@ -321,10 +321,10 @@ URP_Performance_BoatAttack_Win_DX11_performance_playmode_runtime_mono_apiNet2_Li
     dependencies:
       -  path: .yamato/_editor_priming.yml#editor:priming:CUSTOM-REVISION:windows
          rerun: always
-      -  path: .yamato/urp_performance_boatattack-win-dx11.yml#Build_URP_Performance_BoatAttack_Win_DX11_Player_mono_apiNet2_Linear_CUSTOM-REVISION
+      -  path: .yamato/urp_performance_boatattack-win-vulkan.yml#Build_URP_Performance_BoatAttack_Win_Vulkan_Player_mono_apiNet2_Linear_CUSTOM-REVISION
          rerun: always
-Build_URP_Performance_BoatAttack_Win_DX11_Player_mono_apiNet2_Linear_CUSTOM-REVISION:
-    name: Build URP_Performance_BoatAttack on Win_DX11_mono_apiNet2_Linear_Player on version CUSTOM-REVISION
+Build_URP_Performance_BoatAttack_Win_Vulkan_Player_mono_apiNet2_Linear_CUSTOM-REVISION:
+    name: Build URP_Performance_BoatAttack on Win_Vulkan_mono_apiNet2_Linear_Player on version CUSTOM-REVISION
     agent:
         type: Unity::VM
         image: sdet/gamecode_win10:stable
@@ -363,7 +363,7 @@ Build_URP_Performance_BoatAttack_Win_DX11_Player_mono_apiNet2_Linear_CUSTOM-REVI
                   set /p GIT_REVISIONDATE=<revdate.tmp
                   echo %GIT_REVISIONDATE%
                   del revdate.tmp
-                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --build-only --editor-location=.Editor --extra-editor-arg="-addscenetobuild=Assets/scenes/Testing/benchmark_island-static.unity" --extra-editor-arg="-allowdebugging-" --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-executemethod CustomBuild.BuildWindowsDX11Linear" --extra-editor-arg="-executemethod Editor.Setup" --extra-editor-arg="-managedstrippinglevel=Low" --extra-editor-arg="-packageundertestbranch=%GIT_BRANCH%" --extra-editor-arg="-packageundertestname=com.unity.render-pipelines.universal" --extra-editor-arg="-packageundertestrev=%GIT_REVISION%" --extra-editor-arg="-packageundertestrevdate=%GIT_REVISIONDATE%" --extra-editor-arg="-playergraphicsapi=Direct3D11" --extra-editor-arg="-stripenginecode-" --extra-editor-arg="-testCategory Performance" --platform=StandaloneWindows64 --player-save-path=../../players --scripting-backend=Mono2x --suite=playmode --testproject=. --timeout=1200
+                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --build-only --editor-location=.Editor --extra-editor-arg="-addscenetobuild=Assets/scenes/Testing/benchmark_island-static.unity" --extra-editor-arg="-allowdebugging-" --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-executemethod CustomBuild.BuildWindowsVulkanLinear" --extra-editor-arg="-executemethod Editor.Setup" --extra-editor-arg="-managedstrippinglevel=Low" --extra-editor-arg="-packageundertestbranch=%GIT_BRANCH%" --extra-editor-arg="-packageundertestname=com.unity.render-pipelines.universal" --extra-editor-arg="-packageundertestrev=%GIT_REVISION%" --extra-editor-arg="-packageundertestrevdate=%GIT_REVISIONDATE%" --extra-editor-arg="-playergraphicsapi=Vulkan" --extra-editor-arg="-stripenginecode-" --extra-editor-arg="-testCategory Performance" --platform=StandaloneWindows64 --player-save-path=../../players --scripting-backend=Mono2x --suite=playmode --testproject=. --timeout=1200
     artifacts:
         logs:
             paths:
@@ -375,8 +375,8 @@ Build_URP_Performance_BoatAttack_Win_DX11_Player_mono_apiNet2_Linear_CUSTOM-REVI
     dependencies:
       -  path: .yamato/_editor_priming.yml#editor:priming:CUSTOM-REVISION:windows
          rerun: always
-URP_Performance_BoatAttack_Win_DX11_performance_editmode_build_il2cpp_apiNet4_Linear_CUSTOM-REVISION:
-    name: URP_Performance_BoatAttack on Win_DX11_performance_editmode_build_il2cpp_apiNet4_Linear on version CUSTOM-REVISION
+URP_Performance_BoatAttack_Win_Vulkan_performance_editmode_build_il2cpp_apiNet4_Linear_CUSTOM-REVISION:
+    name: URP_Performance_BoatAttack on Win_Vulkan_performance_editmode_build_il2cpp_apiNet4_Linear on version CUSTOM-REVISION
     agent:
         type: Unity::VM::GPU
         image: sdet/gamecode_win10:stable
@@ -415,7 +415,7 @@ URP_Performance_BoatAttack_Win_DX11_performance_editmode_build_il2cpp_apiNet4_Li
                   set /p GIT_REVISIONDATE=<revdate.tmp
                   echo %GIT_REVISIONDATE%
                   del revdate.tmp
-                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --editor-location=.Editor --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-force-d3d11" --performance-project-id=BoatAttack --platform=editmode --report-performance-data --reruncount=2 --scripting-backend=IL2CPP --suite=editor --testfilter=Build --testproject=.
+                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --editor-location=.Editor --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-force-vulkan" --performance-project-id=BoatAttack --platform=editmode --report-performance-data --reruncount=2 --scripting-backend=IL2CPP --suite=editor --testfilter=Build --testproject=.
     artifacts:
         logs:
             paths:
@@ -424,8 +424,8 @@ URP_Performance_BoatAttack_Win_DX11_performance_editmode_build_il2cpp_apiNet4_Li
     dependencies:
       -  path: .yamato/_editor_priming.yml#editor:priming:CUSTOM-REVISION:windows
          rerun: always
-URP_Performance_BoatAttack_Win_DX11_performance_editmode_build_mono_apiNet2_Linear_CUSTOM-REVISION:
-    name: URP_Performance_BoatAttack on Win_DX11_performance_editmode_build_mono_apiNet2_Linear on version CUSTOM-REVISION
+URP_Performance_BoatAttack_Win_Vulkan_performance_editmode_build_mono_apiNet2_Linear_CUSTOM-REVISION:
+    name: URP_Performance_BoatAttack on Win_Vulkan_performance_editmode_build_mono_apiNet2_Linear on version CUSTOM-REVISION
     agent:
         type: Unity::VM::GPU
         image: sdet/gamecode_win10:stable
@@ -464,7 +464,7 @@ URP_Performance_BoatAttack_Win_DX11_performance_editmode_build_mono_apiNet2_Line
                   set /p GIT_REVISIONDATE=<revdate.tmp
                   echo %GIT_REVISIONDATE%
                   del revdate.tmp
-                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --editor-location=.Editor --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-force-d3d11" --performance-project-id=BoatAttack --platform=editmode --report-performance-data --reruncount=2 --scripting-backend=Mono2x --suite=editor --testfilter=Build --testproject=.
+                  cd TestProjects/BoatAttack && utr --artifacts_path=test-results --editor-location=.Editor --extra-editor-arg="-colorspace=Linear" --extra-editor-arg="-force-vulkan" --performance-project-id=BoatAttack --platform=editmode --report-performance-data --reruncount=2 --scripting-backend=Mono2x --suite=editor --testfilter=Build --testproject=.
     artifacts:
         logs:
             paths:
